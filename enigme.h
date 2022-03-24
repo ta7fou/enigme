@@ -1,26 +1,25 @@
-#ifndef ENIGME_H_INCLUDED
-#define ENIGME_H_INCLUDED
+#ifndef  ALEATOIRE_H_INCLUDED 
+#define ALEATOIRE_H_INCLUDED
 #include <stdio.h>
-#include "SDL/SDL_image.h"
-#include "SDL/SDL.h"
-#include "SDL/SDL_mixer.h"
 #include <stdlib.h>
-#include "SDL/SDL_ttf.h"
+#include <SDL/SDL.h>
+#include <stdbool.h>
+#include <math.h>
+#include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
+#include <SDL/SDL_mixer.h>
 #include <time.h>
-typedef struct{
-  SDL_Surface * back;
-  FILE * f;
+
+typedef struct 
+{
+    char question[50];
+    char rep1[50],rep2[50],rep3[50];
+    int sol;
 }enigme;
-typedef struct {
-  char quest [400];
-  char c1[50];
- char c2[50];
- char c3[50];
- char x [50];
-}enigmeData;
-enigme initEnigme();
-void showEnigme(enigmeData ed, SDL_Surface *screen, enigme e);
-int randomize();
-enigmeData generateEnigme(enigme e);
-int resolutionEnigme(enigmeData ed, SDL_Event event);
-#endif
+
+enigme generer();
+void afficherEnigme(enigme *e, SDL_Surface * screen);
+int enigme_alea();
+
+
+ #endif
